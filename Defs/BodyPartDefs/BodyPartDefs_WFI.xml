@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Frail by design: 8 hp, scrotal (skin-covered, apparel-protectable),
+       frostbite-prone when naked. Tunable lever = hitPoints. -->
+  <BodyPartDef>
+    <defName>WFI_Testis</defName>
+    <label>testis</label>
+    <hitPoints>8</hitPoints>
+    <frostbiteVulnerability>0.3</frostbiteVulnerability>
+    <skinCovered>true</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.0</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <delicate>true</delicate>
+    <tags>
+      <li>Mirrored</li>
+      <li>WFI_Gonad</li>
+      <li>WFI_Reproductive</li>
+    </tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>WFI_Ovary</defName>
+    <label>ovary</label>
+    <hitPoints>10</hitPoints>
+    <frostbiteVulnerability>0</frostbiteVulnerability>
+    <skinCovered>false</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.0</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <tags>
+      <li>Mirrored</li>
+      <li>WFI_Gonad</li>
+      <li>WFI_Reproductive</li>
+    </tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>WFI_Uterus</defName>
+    <label>uterus</label>
+    <hitPoints>15</hitPoints>
+    <frostbiteVulnerability>0</frostbiteVulnerability>
+    <skinCovered>false</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.5</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <tags>
+      <li>WFI_Reproductive</li>
+      <li>WFI_Gestation</li>
+    </tags>
+  </BodyPartDef>
+
+  <!-- ===== Phase 7/8 stubs: registered defs, NOT patched into bodies
+       until their own phases. ===== -->
+
+  <BodyPartDef>
+    <defName>WFI_Prostate</defName>
+    <label>prostate</label>
+    <hitPoints>10</hitPoints>
+    <skinCovered>false</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.0</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <tags><li>WFI_Urology</li></tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>WFI_Bladder</defName>
+    <label>bladder</label>
+    <hitPoints>10</hitPoints>
+    <skinCovered>false</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.0</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <tags><li>WFI_Urology</li></tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>WFI_Urethra</defName>
+    <label>urethra</label>
+    <hitPoints>6</hitPoints>
+    <skinCovered>true</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.0</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <tags><li>WFI_Urology</li></tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>WFI_Pouch</defName>
+    <label>pouch</label>
+    <hitPoints>15</hitPoints>
+    <skinCovered>true</skinCovered>
+    <solid>false</solid>
+    <bleedRate>1.0</bleedRate>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <tags><li>WFI_Gestation</li></tags>
+  </BodyPartDef>
+
+</Defs>

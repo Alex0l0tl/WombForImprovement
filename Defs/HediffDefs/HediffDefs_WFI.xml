@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>WFI_GroinStruck</defName>
+    <label>groin trauma</label>
+    <description>A recent, excruciating blow to the groin. Transient.</description>
+    <hediffClass>WombForImprovement.Hediff_GroinStruck</hediffClass>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>0.1</initialSeverity>
+    <isBad>true</isBad>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1500</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>minor</label>
+        <becomeVisible>false</becomeVisible>
+      </li>
+      <li>
+        <label>severe</label>
+        <minSeverity>0.35</minSeverity>
+      </li>
+      <li>
+        <label>debilitating</label>
+        <minSeverity>0.7</minSeverity>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Internal marker for gonad function state. TODO Phase 0 integration:
+       endogene payload + xenotype-origin label ride here. -->
+  <HediffDef>
+    <defName>WFI_GonadState</defName>
+    <label>gonadal development</label>
+    <description>Internal state marker for WFI gonad function.</description>
+    <hediffClass>Hediff</hediffClass>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

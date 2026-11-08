@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/BodyDef[defName = "Human"]/corePart/parts</xpath>
+    <value>
+      <li>
+        <def>WFI_Testis</def>
+        <coverage>0.0015</coverage>
+        <height>Bottom</height>
+        <depth>Outside</depth>
+        <groups><li>Torso</li></groups>
+      </li>
+      <li>
+        <def>WFI_Testis</def>
+        <coverage>0.0015</coverage>
+        <height>Bottom</height>
+        <depth>Outside</depth>
+        <groups><li>Torso</li></groups>
+      </li>
+      <li>
+        <def>WFI_Ovary</def>
+        <coverage>0.0015</coverage>
+        <height>Middle</height>
+        <depth>Inside</depth>
+        <groups><li>Torso</li></groups>
+      </li>
+      <li>
+        <def>WFI_Ovary</def>
+        <coverage>0.0015</coverage>
+        <height>Middle</height>
+        <depth>Inside</depth>
+        <groups><li>Torso</li></groups>
+      </li>
+      <li>
+        <def>WFI_Uterus</def>
+        <coverage>0.003</coverage>
+        <height>Middle</height>
+        <depth>Inside</depth>
+        <groups><li>Torso</li></groups>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>

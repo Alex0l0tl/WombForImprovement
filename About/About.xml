@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Womb for Improvement</name>
+  <author>Alexander</author>
+  <packageId>wfi.wombforimprovement</packageId>
+  <supportedVersions>
+    <li>1.5</li>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>SFW reproductive biology overhaul: functional gonad anatomy (testes L/R, ovaries L/R, uterus), realistic unarmed groin-strike consequences, and fertility gating through vanilla Biotech seams. RJW bridge is a separate, opt-in mod.</description>
+</ModMetaData>

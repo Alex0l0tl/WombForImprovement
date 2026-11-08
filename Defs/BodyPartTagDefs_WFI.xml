@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BodyPartTagDef>
+    <defName>WFI_Gonad</defName>
+    <label>gonad</label>
+  </BodyPartTagDef>
+
+  <BodyPartTagDef>
+    <defName>WFI_Reproductive</defName>
+    <label>reproductive</label>
+  </BodyPartTagDef>
+
+  <BodyPartTagDef>
+    <defName>WFI_Gestation</defName>
+    <label>gestation</label>
+  </BodyPartTagDef>
+
+  <BodyPartTagDef>
+    <defName>WFI_Urology</defName>
+    <label>urology</label>
+  </BodyPartTagDef>
+
+</Defs>
