@@ -1,6 +1,6 @@
 namespace WombForImprovement
 {
-    [Verse.DefOf]
+    [RimWorld.DefOf]
     public static class WFIBodyPartDefOf
     {
         public static Verse.BodyPartDef WFI_Testis;
@@ -9,11 +9,11 @@ namespace WombForImprovement
 
         static WFIBodyPartDefOf()
         {
-            Verse.DefOfHelper.EnsureInitializedInCtor(typeof(WFIBodyPartDefOf));
+            RimWorld.DefOfHelper.EnsureInitializedInCtor(typeof(WFIBodyPartDefOf));
         }
     }
 
-    [Verse.DefOf]
+    [RimWorld.DefOf]
     public static class WFIBodyPartTagDefOf
     {
         public static Verse.BodyPartTagDef WFI_Gonad;
@@ -23,11 +23,11 @@ namespace WombForImprovement
 
         static WFIBodyPartTagDefOf()
         {
-            Verse.DefOfHelper.EnsureInitializedInCtor(typeof(WFIBodyPartTagDefOf));
+            RimWorld.DefOfHelper.EnsureInitializedInCtor(typeof(WFIBodyPartTagDefOf));
         }
     }
 
-    [Verse.DefOf]
+    [RimWorld.DefOf]
     public static class WFIHediffDefOf
     {
         public static Verse.HediffDef WFI_GroinStruck;
@@ -36,7 +36,7 @@ namespace WombForImprovement
 
         static WFIHediffDefOf()
         {
-            Verse.DefOfHelper.EnsureInitializedInCtor(typeof(WFIHediffDefOf));
+            RimWorld.DefOfHelper.EnsureInitializedInCtor(typeof(WFIHediffDefOf));
         }
     }
 }

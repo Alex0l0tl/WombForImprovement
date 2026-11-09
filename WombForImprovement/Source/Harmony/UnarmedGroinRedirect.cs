@@ -12,41 +12,30 @@ namespace WombForImprovement.Harmony
     /// a Bottom-height torso part and the target HAS intact testes, boost the
     /// odds the strike lands on one. Wrong belief resolves silently: no testes
     /// -> no redirect -> ordinary torso hit (emergent castration upside).
+    /// No private-field access needed: ChooseHitPart RETURNS the chosen part.
     /// </summary>
     public static class UnarmedGroinRedirect
     {
-        // VERIFY against local 1.6 decompile: field on DamageWorker that
-        // ChooseHitPart assigns. Standard name through 1.5 is lastHitPartInternal.
-        static readonly FieldInfo LastHitPartFieldInfo =
-            AccessTools.Field(typeof(DamageWorker), "lastHitPartInternal");
-
-        public static void Postfix(DamageWorker __instance, DamageInfo dinfo, Pawn pawn)
+        public static void Postfix(DamageWorker __instance, DamageInfo dinfo, Pawn pawn,
+            ref BodyPartRecord __result)
         {
             try
             {
                 if (pawn == null || pawn.Dead || pawn.health == null || pawn.health.hediffSet == null) return;
-                if (LastHitPartFieldInfo == null)
-                {
-                    Log.ErrorOnce("[WFI] DamageWorker hit-part field 'lastHitPartInternal' not found — redirect disabled.", 777000);
-                    return;
-                }
+
+                // Height gating: only bottom-of-torso strikes redirect.
+                if (__result == null || __result.height != BodyPartHeight.Bottom) return;
+                if (__result.coverageAbs <= 0f) return; // never touch unhittable parts
 
                 float chance = __instance is DamageWorker_Bite
                     ? WFISettings.AnimalBiteChance
                     : WFISettings.UnarmedChance;
                 if (chance <= 0f || !Rand.Chance(chance)) return;
 
-                var current = (BodyPartRecord)LastHitPartFieldInfo.GetValue(__instance);
-
-                // Height gating: only bottom-of-torso strikes redirect.
-                if (current == null || current.height != BodyPartHeight.Bottom) return;
-                if (current.coverageAbs <= 0f) return; // never touch unhittable parts
-
                 var testes = IntactTestes(pawn);
                 if (testes.Count == 0) return; // wrong belief -> silent torso resolution
 
                 var target = testes.RandomElement();
-                LastHitPartFieldInfo.SetValue(__instance, target);
 
                 // Pain + stagger hediff; severity ∝ damage. Pain-driven collapse
                 // is emergent via vanilla HediffSet.CalculatePain.
@@ -57,6 +46,10 @@ namespace WombForImprovement.Harmony
                 // Native stagger: no generic wound->stagger path exists; call it.
                 if (pawn.stances != null && pawn.stances.stagger != null)
                     pawn.stances.stagger.StaggerFor(60, 0.05f);
+
+                // Redirect the actual hit AFTER hediff/stagger, so failure paths
+                // never steal the original part.
+                __result = target;
             }
             catch (System.Exception e)
             {

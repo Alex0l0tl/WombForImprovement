@@ -5,12 +5,22 @@ using Verse;
 
 namespace WombForImprovement.Harmony
 {
+    // Runs AFTER DefDatabase is populated and cross-refs resolved.
+    [StaticConstructorOnStartup]
+    public static class WfiStartup
+    {
+        static WfiStartup()
+        {
+            new PatchBootstrap().Apply();
+        }
+    }
+
     public sealed class PatchBootstrap
     {
         private const string HarmonyId = "wfi.wombforimprovement";
         private static bool _applied;
 
-        public void Apply(ModContentPack content)
+        public void Apply()
         {
             if (_applied) return;
             _applied = true;
@@ -19,10 +29,6 @@ namespace WombForImprovement.Harmony
 
             var h = new HarmonyLib.Harmony(HarmonyId);
 
-            // Blunt + Bite ONLY (never the base class — Blunt/Bite override
-            // ChooseHitPart; a base-class patch would never fire for them).
-            // This scoping IS the unarmed/animal filter: armed melee uses
-            // Scratch/Cut workers, deliberately excluded.
             foreach (var t in new[] { typeof(DamageWorker_Blunt), typeof(DamageWorker_Bite) })
             {
                 var mi = AccessTools.Method(t, "ChooseHitPart");
@@ -38,12 +44,11 @@ namespace WombForImprovement.Harmony
             Log.Message("[WFI] Phase 0.7 harmony patches applied.");
         }
 
-        // Fails LOUDLY at boot if defs/patch/assembly are broken.
         static void SanityCheckDefs()
         {
             var missingDefs = new List<string>();
             foreach (var n in new[] { "WFI_Testis", "WFI_Ovary", "WFI_Uterus" })
-                if (DefDatabase<Verse.BodyPartDef>.GetNamedSilentFail(n) == null)
+                if (DefDatabase<BodyPartDef>.GetNamedSilentFail(n) == null)
                     missingDefs.Add(n);
 
             if (missingDefs.Count > 0)

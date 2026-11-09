@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using Verse;
 
 namespace WombForImprovement
@@ -11,7 +10,6 @@ namespace WombForImprovement
             try
             {
                 GetSettings<WFISettings>();
-                new Harmony.PatchBootstrap().Apply(content);
             }
             catch (Exception e)
             {
@@ -21,9 +19,9 @@ namespace WombForImprovement
 
         public override string SettingsCategory() => "Womb for Improvement";
 
-        public override void DoSettingsWindowContents(Rect inRect)
+        public override void DoSettingsWindowContents(UnityEngine.Rect inRect)
         {
-            Listing_Standard ls = new Listing_Standard();
+            var ls = new Listing_Standard();
             ls.Begin(inRect);
 
             ls.Label("Unarmed groin-strike redirect: " + WFISettings.UnarmedChance.ToStringPercent());

@@ -18,7 +18,7 @@
     </Reference>
     <Reference Include="0Harmony">
       <!-- ADJUST: point at wherever 0Harmony.dll actually lives on your install -->
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Harmony\1.6\Assemblies\0Harmony.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2009463077\1.6\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
